@@ -6,6 +6,7 @@ const jwt = require('jsonwebtoken')
 const bcrypt = require('bcryptjs')
 const secret = require('../config/secret.json')
 class UserController {
+    
     static async login(ctx) {
         const data = ctx.request.body
         const { user } = ctx.request.body

@@ -15,10 +15,7 @@ const app = new Koa()
 app.use(error())
 app.use(logger())
 app.use(bodyParser())
-// app.use(bodyParser())
-// app.use(jwtKoa({ secret }).unless({
-//     path: [/^\/api\/login/] //数组中的路径不需要通过jwt验证
-// }))
+//数组中的路径不需要通过jwt验证
 app.use(jwtKoa({secret}).unless({path: [/^\/api\/login/, /^\/api\/createUser/]}))
 app
     .use(router.routes())
